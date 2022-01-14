@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Hello Spring Boot</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div>
+        <h1>Hello Spring Boot</h1>
+        <h1>안녕 스프링부트</h1>
+        <h1 th:text="'Message: ' + ${message}"></h1>
+        <form method="post" action="/board">
+        	<input type="submit" value="게시판">
+        </form>
+    </div>
+</body>
+</html>
