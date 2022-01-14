@@ -1,8 +1,8 @@
-package service.impl;
+package kr.corona.service.impl;
 
 import org.springframework.stereotype.Service;
 
-import service.TestService;
+import kr.corona.service.TestService;
 
 @Service
 public class TestServiceImpl implements TestService{

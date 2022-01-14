@@ -1,4 +1,4 @@
-package controller;
+package kr.corona.controller;
 
 import org.springframework.stereotype.Controller;
 

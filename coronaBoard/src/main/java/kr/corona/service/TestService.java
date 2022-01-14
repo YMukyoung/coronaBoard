@@ -1,4 +1,4 @@
-package service;
+package kr.corona.service;
 
 public interface TestService {
 
