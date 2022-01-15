@@ -20,4 +20,9 @@ public class TestController {
 	public String home() {
 		return "index";
 	}
+	
+	@GetMapping("/naver/Map")
+	public String getNaverMap() {
+		return "naverMap";
+	}
 }
