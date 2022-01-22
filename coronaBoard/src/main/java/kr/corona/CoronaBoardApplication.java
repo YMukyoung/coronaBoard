@@ -7,6 +7,7 @@ import org.springframework.context.annotation.PropertySource;
 
 @SpringBootApplication(exclude={DataSourceAutoConfiguration.class})
 @PropertySource(value = {"classpath:application.naver.properties"})
+@PropertySource(value = {"classpath:application.corona.properties"})
 public class CoronaBoardApplication {
 
 	public static void main(String[] args) {
