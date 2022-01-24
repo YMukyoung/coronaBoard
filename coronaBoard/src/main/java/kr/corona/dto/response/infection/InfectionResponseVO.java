@@ -1,10 +1,15 @@
 package kr.corona.dto.response.infection;
 
-import lombok.Data;
+import javax.xml.bind.annotation.XmlRootElement;
 
-@Data
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+@XmlRootElement(name="response")
 public class InfectionResponseVO {
 	
-	public InfectionHeaderVO header;
-	public InfectionBodyVO body;
+	private InfectionHeaderVO header;
+	private InfectionBodyVO body;
 }

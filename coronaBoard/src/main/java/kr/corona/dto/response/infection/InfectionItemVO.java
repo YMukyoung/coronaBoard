@@ -1,8 +1,11 @@
 package kr.corona.dto.response.infection;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 import lombok.Data;
 
 @Data
+@XmlRootElement(name="item")
 public class InfectionItemVO {
 	
 	private double accDefRate;
