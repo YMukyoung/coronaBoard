@@ -9,7 +9,7 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import kr.corona.dto.response.InfectionResponseVO;
+import kr.corona.dto.response.infection.InfectionVO;
 import kr.corona.service.CoronaService;
 
 @Service
@@ -26,10 +26,9 @@ public class CoronaServiceImpl implements CoronaService{
 	                .build(true);   		
 
         RestTemplate restTemplate = new RestTemplateBuilder().build();
-        InfectionResponseVO response = restTemplate.getForObject(requestUri.toUri(), InfectionResponseVO.class);
+        InfectionVO response = restTemplate.getForObject(requestUri.toUri(), InfectionVO.class);
 
-        
         System.out.println(requestUri.toUri());
-		System.out.println(response.getBody());
+		System.out.println(response);
 	}
 }
