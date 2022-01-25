@@ -6,19 +6,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import kr.corona.dto.response.infection.InfectionResponseVO;
 import kr.corona.service.CoronaService;
 
 @RestController
-@RequestMapping("/corona/*")
+@RequestMapping("/corona")
 public class CoronaController {
 
 	@Autowired
 	private CoronaService coronaService;
 	
-	@RequestMapping("/corona1")
-	public String corona1() throws UnsupportedEncodingException {
-		coronaService.getCoronaInfection();
-		return "corona1";
+	@RequestMapping("/infection")
+	public InfectionResponseVO corona1() throws UnsupportedEncodingException {
+		return coronaService.getCoronaInfection();
 	}
 	
 	@RequestMapping("/corona2")

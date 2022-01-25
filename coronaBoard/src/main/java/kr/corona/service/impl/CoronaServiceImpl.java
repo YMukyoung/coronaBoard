@@ -20,7 +20,7 @@ public class CoronaServiceImpl implements CoronaService{
 	@Value("${corona.infection.serviceKey}")
 	private String infectionServiceKey;
 	
-	public void getCoronaInfection() throws UnsupportedEncodingException  {
+	public InfectionResponseVO getCoronaInfection() throws UnsupportedEncodingException  {
 	    UriComponents requestUri = UriComponentsBuilder.fromHttpUrl(infectionRequestUrl)
 	                .queryParam("serviceKey", infectionServiceKey)
 	                .build(true);   		
@@ -28,9 +28,6 @@ public class CoronaServiceImpl implements CoronaService{
         RestTemplate restTemplate = new RestTemplateBuilder().build();
         InfectionResponseVO response = restTemplate.getForObject(requestUri.toUri(), InfectionResponseVO.class);
         
-        System.out.println(requestUri.toUri());
-		System.out.println(response);
-		System.out.println(response.getHeader());
-		System.out.println(response.getBody());
+		return response;
 	}
 }
