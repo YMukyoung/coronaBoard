@@ -3,17 +3,19 @@
         xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 	<body>
 	
-		<!-- [header] ¿µ¿ª ½ÃÀÛ -->
+		<!-- [header]  -->
 		<header th:replace="fragments/header :: headerFragment"></header>
-		<!-- [header] ¿µ¿ª ³¡ -->
+		<!-- [header] ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ -->
 		
-		<!-- [content] ¿µ¿ª ½ÃÀÛ -->
+		<th:block th:replace="fragments/sidebar :: sideFragment"></th:block>
+		
+		<!-- [content] ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ -->
 		<th:block layout:fragment="content"></th:block>
-		<!-- [content] ¿µ¿ª ³¡ -->
+		<!-- [content] ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ -->
 		
-		<!-- [footer] ¿µ¿ª ½ÃÀÛ -->
+		<!-- [footer] ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ -->
 		<footer th:replace="fragments/footer :: footerFragment"></footer>
-		<!-- [footer] ¿µ¿ª ³¡ -->
+		<!-- [footer] ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ -->
 	
 	</body>
 </html>
