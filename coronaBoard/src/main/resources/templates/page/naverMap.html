@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html 	xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{layouts/layout}">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,7 +10,7 @@
     <script th:src="@{https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=} + ${clientId} + @{&callback=initMap&submodules=geocoder}"></script>
 </head>
 <body>
-<div id="map" style="width:100%;height:800px;"></div>
+<th:block layout:fragment="content">
 <script th:inline="javascript">
 let map = null;
 let maker = null;
@@ -54,5 +56,7 @@ function initMap() {
     });
 }
 </script>
+<div id="map" style="width:100%;height:800px;"></div>
+</th:block>
 </body>
 </html>

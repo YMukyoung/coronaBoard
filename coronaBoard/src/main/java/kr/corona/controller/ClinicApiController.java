@@ -28,6 +28,6 @@ public class ClinicApiController {
 		List<String> address = clinicService.getClinicLoc();
 		model.addAttribute("address", address);
 		model.addAttribute("clientId", naverClientId);
-		return "naverMap";
+		return "/page/naverMap";
 	}
 }
