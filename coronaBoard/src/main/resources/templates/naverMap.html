@@ -5,17 +5,52 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
     <title>간단한 지도 표시하기</title>
-    <script th:src="@{https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=} + ${clientId} + @{&callback=initMap}"></script>
+    <script th:src="@{https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=} + ${clientId} + @{&callback=initMap&submodules=geocoder}"></script>
 </head>
 <body>
 <div id="map" style="width:100%;height:800px;"></div>
-<script type="text/javascript">
-var map = null;
+<script th:inline="javascript">
+let map = null;
+let maker = null;
+let position = new naver.maps.LatLng(37.5666103, 126.9783882);
+const addressList = /*[[${address}]]*/
 
 function initMap() {
     map = new naver.maps.Map('map', {
-        center: new naver.maps.LatLng(37.5666103, 126.9783882),
+        center: position,
         zoom: 15
+    });
+    
+    marker = new naver.maps.Marker({
+    	position : position,
+    	map: map
+    });
+    
+    // marKer 여러개 생성
+//     for(let i = 0; i < addressList.length; i++) {
+    for(let i = 0; i < 10; i++) {
+    	naver.maps.Service.geocode({
+            address: addressList[i]
+        }, function(status, response) {
+            if (status !== naver.maps.Service.Status.OK) {
+                return alert('Something wrong!');
+            }
+
+            var result = response.result, // 검색 결과의 컨테이너
+                items = result.items; // 검색 결과의 배열
+    		
+            if(items.length > 0){
+	            marker = new naver.maps.Marker({
+	            	position : new naver.maps.LatLng(Number(items[0].point.y), Number(items[0].point.x)),
+	            	map: map
+	            });
+	        }
+        });
+    }
+    
+    // marKer 이벤트
+    naver.maps.Event.addListener(map, 'click', function(e) {
+   		 marker.setPosition(e.latlng);
     });
 }
 </script>
